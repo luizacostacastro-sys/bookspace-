@@ -1,0 +1,65 @@
+{
+  "name": "BookCopy",
+  "type": "object",
+  "properties": {
+    "book_id": {
+      "type": "string"
+    },
+    "book_title": {
+      "type": "string"
+    },
+    "book_authors": {
+      "type": "string"
+    },
+    "copy_code": {
+      "type": "string"
+    },
+    "qr_identifier": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "disponivel",
+        "emprestado",
+        "manutencao",
+        "danificado",
+        "perdido",
+        "inativo"
+      ],
+      "default": "disponivel"
+    },
+    "physical_location": {
+      "type": "string"
+    },
+    "acquisition_date": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "book_id",
+    "copy_code",
+    "qr_identifier"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

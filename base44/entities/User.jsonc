@@ -1,0 +1,23 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "staff_role": {
+      "type": "string",
+      "enum": [
+        "administrador",
+        "funcionario",
+        "professor",
+        "estudante"
+      ],
+      "default": "estudante",
+      "rls": {
+        "update": {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      }
+    }
+  }
+}

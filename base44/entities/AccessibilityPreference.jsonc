@@ -1,0 +1,72 @@
+{
+  "name": "AccessibilityPreference",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string"
+    },
+    "font_scale": {
+      "type": "number",
+      "default": 100
+    },
+    "line_spacing": {
+      "type": "number",
+      "default": 150
+    },
+    "letter_spacing": {
+      "type": "number",
+      "default": 0
+    },
+    "theme": {
+      "type": "string",
+      "enum": [
+        "light",
+        "dark",
+        "contrast"
+      ],
+      "default": "light"
+    },
+    "reading_font": {
+      "type": "string",
+      "enum": [
+        "default",
+        "atkinson",
+        "lexend"
+      ],
+      "default": "default"
+    },
+    "simplified": {
+      "type": "boolean",
+      "default": false
+    },
+    "reduced_motion": {
+      "type": "boolean",
+      "default": false
+    },
+    "highlight_links": {
+      "type": "boolean",
+      "default": false
+    },
+    "big_targets": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "user_email"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

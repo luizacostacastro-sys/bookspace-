@@ -1,0 +1,88 @@
+{
+  "name": "LibrarySettings",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "default": "default"
+    },
+    "library_name": {
+      "type": "string"
+    },
+    "school_name": {
+      "type": "string"
+    },
+    "loan_days_estudante": {
+      "type": "number",
+      "default": 7
+    },
+    "loan_days_professor": {
+      "type": "number",
+      "default": 21
+    },
+    "loan_days_funcionario": {
+      "type": "number",
+      "default": 14
+    },
+    "loan_days_administrador": {
+      "type": "number",
+      "default": 30
+    },
+    "max_loans_estudante": {
+      "type": "number",
+      "default": 2
+    },
+    "max_loans_professor": {
+      "type": "number",
+      "default": 5
+    },
+    "max_loans_funcionario": {
+      "type": "number",
+      "default": 5
+    },
+    "max_loans_administrador": {
+      "type": "number",
+      "default": 10
+    },
+    "renewal_days": {
+      "type": "number",
+      "default": 7
+    },
+    "public_registration_enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "approval_required": {
+      "type": "boolean",
+      "default": true
+    },
+    "overdue_notice_days": {
+      "type": "number",
+      "default": 3
+    },
+    "updated_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "key"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "name": "Loan",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string"
+    },
+    "user_email": {
+      "type": "string"
+    },
+    "user_name": {
+      "type": "string"
+    },
+    "user_kind": {
+      "type": "string"
+    },
+    "copy_id": {
+      "type": "string"
+    },
+    "copy_code": {
+      "type": "string"
+    },
+    "book_id": {
+      "type": "string"
+    },
+    "book_title": {
+      "type": "string"
+    },
+    "loaned_at": {
+      "type": "string"
+    },
+    "due_at": {
+      "type": "string"
+    },
+    "returned_at": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ativo",
+        "devolvido",
+        "cancelado"
+      ],
+      "default": "ativo"
+    },
+    "return_condition": {
+      "type": "string"
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "returned_by": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "user_email",
+    "copy_id",
+    "copy_code",
+    "due_at"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.user_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
